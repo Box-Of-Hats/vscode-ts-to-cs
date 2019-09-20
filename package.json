@@ -10,14 +10,14 @@
     },
     "publisher": "box-of-hats",
     "description": "Convert typescript to c#",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "engines": {
         "vscode": "^1.38.0"
     },
     "categories": [
         "Other"
     ],
-    "icon": "./icon.png",
+    "icon": "icon.png",
     "activationEvents": [
         "onCommand:extension.tscsharp.generateClassFromInterface",
         "onLanguage:typescriptreact",
