@@ -1,6 +1,14 @@
 {
     "name": "ts-to-csharp",
     "displayName": "ts-to-csharp",
+    "author": {
+        "name": "box-of-hats",
+        "url": "https://github.com/Box-Of-Hats/vscode-ts-to-cs"
+    },
+    "repository": {
+        "url": "https://github.com/Box-Of-Hats/vscode-ts-to-cs"
+    },
+    "publisher": "box-of-hats",
     "description": "Convert typescript to c#",
     "version": "0.0.1",
     "engines": {
@@ -9,6 +17,7 @@
     "categories": [
         "Other"
     ],
+    "icon": "./icon.png",
     "activationEvents": [
         "onCommand:extension.tscsharp.generateClassFromInterface",
         "onLanguage:typescriptreact",
