@@ -51,6 +51,6 @@
         "vscode-test": "^1.2.0"
     },
     "dependencies": {
-        "ts-csharp": "0.0.5"
+        "ts-csharp": "0.1.1"
     }
 }
