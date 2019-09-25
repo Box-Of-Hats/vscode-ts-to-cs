@@ -10,7 +10,7 @@
     },
     "publisher": "box-of-hats",
     "description": "Convert typescript to c#",
-    "version": "0.0.2",
+    "version": "0.1.0",
     "engines": {
         "vscode": "^1.38.0"
     },
@@ -20,6 +20,7 @@
     "icon": "icon.png",
     "activationEvents": [
         "onCommand:extension.tscsharp.generateClassFromInterface",
+        "extension.tscsharp.generateClassFromExportedInterface",
         "onLanguage:typescriptreact",
         "onLanguage:typescript"
     ],
@@ -28,7 +29,11 @@
         "commands": [
             {
                 "command": "extension.tscsharp.generateClassFromInterface",
-                "title": "Ts to Cs: Generate class from interface"
+                "title": "TS => CS: Generate classes from interfaces"
+            },
+            {
+                "command": "extension.tscsharp.generateClassFromExportedInterface",
+                "title": "TS => CS: Generate classes from exported interfaces"
             }
         ]
     },

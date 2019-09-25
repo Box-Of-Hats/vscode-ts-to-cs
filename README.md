@@ -2,7 +2,7 @@
 
 Convert typescript interfaces to CSharp classes
 
-Simply select your typescript interfaces and call the command `Ts to Cs: Generate class from interface`.
+Simply select your typescript interfaces and call the command `TS => CS: Generate classes from interfaces`.
 
 ```typescript
 interface MyTypescriptClass {
@@ -52,3 +52,10 @@ public class AnotherTypescriptClass {
 }
 
 ```
+
+## Commands
+
+| Command                                             | Description                                                                                                 |
+| --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| TS => CS: Generate classes from interfaces          | Generate CSharp classes from the current selected Typescript interfaces                                     |
+| TS => CS: Generate classes from exported interfaces | Generate CSharp classes from the current selected Typescript interfaces; only including exported interfaces |

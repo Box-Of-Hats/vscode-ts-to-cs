@@ -1,54 +1,22 @@
 import * as vscode from "vscode";
-import { convertInterfacesToCSharp } from "ts-csharp";
+import { TsCsharpCommandProvider } from "./commandProvider";
+
 export function activate(context: vscode.ExtensionContext) {
-    let disposable = vscode.commands.registerCommand(
-        "extension.tscsharp.generateClassFromInterface",
+    const commandProvider = new TsCsharpCommandProvider();
 
-        () => {
-            let textEditor = vscode.window.activeTextEditor;
-
-            let documentText = textEditor!.document.getText(
-                textEditor!.selection
-            );
-
-            if (!textEditor) {
-                vscode.window.showErrorMessage(
-                    "No active text editor. Please open a file"
-                );
-                return;
+    context.subscriptions.push(
+        vscode.commands.registerCommand(
+            "extension.tscsharp.generateClassFromInterface",
+            () => {
+                commandProvider.generateClassFromInterfaces(false);
             }
-
-            let infoMessage = vscode.window.setStatusBarMessage(
-                `Generating csharp class...`
-            );
-
-            let csharpClass: string = convertInterfacesToCSharp(documentText);
-
-            if (!csharpClass || csharpClass.length === 0) {
-                infoMessage.dispose();
-                vscode.window.showErrorMessage(
-                    "Could not find any interfaces to generate from."
-                );
+        ),
+        vscode.commands.registerCommand(
+            "extension.tscsharp.generateClassFromExportedInterface",
+            () => {
+                commandProvider.generateClassFromInterfaces(true);
             }
-
-            vscode.workspace
-                .openTextDocument({
-                    language: "csharp",
-                    content: csharpClass
-                })
-                .then(doc => {
-                    vscode.window
-                        .showTextDocument(doc)
-                        .then(e => {
-                            vscode.commands.executeCommand(
-                                "editor.action.formatDocument"
-                            );
-                        })
-                        .then(infoMessage.dispose());
-                });
-        }
+        )
     );
-
-    context.subscriptions.push(disposable);
 }
 export function deactivate() {}
