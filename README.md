@@ -1,20 +1,24 @@
 # TS to CSharp
 
-Convert typescript interfaces to CSharp classes
+Convert typescript interfaces and classes to CSharp classes.
 
 Simply select your typescript interfaces and call the command `TS => CS: Generate classes from interfaces`.
 
 ```typescript
-interface MyTypescriptClass {
+interface MyTypescriptInterface {
     propOne: any;
     propTwo: string;
     propThree: number[];
     propFour: boolean;
 }
 
-interface AnotherTypescriptClass {
-    nestedObjectsInAList: MyTypescriptClass[];
-    recursiveObject: AnotherTypescriptClass;
+class AnActualClass {
+    aProperty: string;
+}
+
+interface AnotherTypescriptInterface {
+    nestedObjectsInAList: MyTypescriptInterface[];
+    recursiveObject: AnotherTypescriptInterface;
     isReallyCool: boolean;
 }
 ```
@@ -22,7 +26,7 @@ interface AnotherTypescriptClass {
 Will be converted to
 
 ```csharp
-public class MyTypescriptClass {
+public class MyTypescriptInterface {
 
     [JsonProperty("propOne")]
     public object PropOne;
@@ -38,13 +42,20 @@ public class MyTypescriptClass {
 
 }
 
-public class AnotherTypescriptClass {
+public class AnActualClass {
+
+    [JsonProperty("aProperty")]
+    public string AProperty;
+
+}
+
+public class AnotherTypescriptInterface {
 
     [JsonProperty("nestedObjectsInAList")]
-    public IEnumerable<MyTypescriptClass> NestedObjectsInAList;
+    public IEnumerable<MyTypescriptInterface> NestedObjectsInAList;
 
     [JsonProperty("recursiveObject")]
-    public AnotherTypescriptClass RecursiveObject;
+    public AnotherTypescriptInterface RecursiveObject;
 
     [JsonProperty("isReallyCool")]
     public bool IsReallyCool;
@@ -55,7 +66,7 @@ public class AnotherTypescriptClass {
 
 ## Commands
 
-| Command                                             | Description                                                                                                 |
-| --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| TS => CS: Generate classes from interfaces          | Generate CSharp classes from the current selected Typescript interfaces                                     |
-| TS => CS: Generate classes from exported interfaces | Generate CSharp classes from the current selected Typescript interfaces; only including exported interfaces |
+| Command                                             | Description                                                                                                            |
+| --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| TS => CS: Generate classes from interfaces          | Generate CSharp classes from the current selected Typescript interfaces or classes                                     |
+| TS => CS: Generate classes from exported interfaces | Generate CSharp classes from the current selected Typescript interfaces; only including exported interfaces or classes |
