@@ -2,6 +2,8 @@
 
 Convert typescript interfaces and classes to CSharp classes.
 
+Get it on the [VSCode Marketplace](https://marketplace.visualstudio.com/items?itemName=Box-Of-Hats.ts-to-csharp)
+
 Simply select your typescript interfaces and call the command `TS => CS: Generate classes from interfaces`.
 
 ```typescript
