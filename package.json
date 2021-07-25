@@ -10,7 +10,7 @@
 	},
 	"publisher": "box-of-hats",
 	"description": "Convert typescript to c#",
-	"version": "0.2.1",
+	"version": "0.2.2",
 	"engines": {
 		"vscode": "^1.38.0"
 	},
@@ -56,6 +56,6 @@
 		"vscode-test": "^1.4.0"
 	},
 	"dependencies": {
-		"ts-csharp": "^0.3.0"
+		"ts-csharp": "^0.3.1"
 	}
 }

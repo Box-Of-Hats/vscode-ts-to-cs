@@ -1,9 +1,5 @@
-# Change Log
+# Changelog
 
-All notable changes to the "ts-csharp" extension will be documented in this file.
+## v0.2.2
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
-## [Unreleased]
-
-- Initial release
+-   Upgrade ts-csharp version to `0.3.1`
