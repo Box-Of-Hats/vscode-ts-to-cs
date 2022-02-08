@@ -27,9 +27,18 @@ class TsCsharpCommandProvider {
 
 		if (!csharpClass || csharpClass.length === 0) {
 			infoMessage.dispose();
-			vscode.window.showErrorMessage(
-				"Could not find any interfaces to generate from."
-			);
+
+			if (exportedInterfacesOnly) {
+				vscode.window.showErrorMessage(
+					"Could not find any exported interfaces to generate from."
+				);
+			} else {
+				vscode.window.showErrorMessage(
+					"Could not find any interfaces to generate from."
+				);
+			}
+
+			return;
 		}
 
 		vscode.workspace
@@ -37,10 +46,10 @@ class TsCsharpCommandProvider {
 				language: "csharp",
 				content: csharpClass,
 			})
-			.then((doc) => {
+			.then(doc => {
 				vscode.window
 					.showTextDocument(doc)
-					.then((e) => {
+					.then(e => {
 						vscode.commands.executeCommand(
 							"editor.action.formatDocument"
 						);
